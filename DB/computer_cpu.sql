@@ -1,0 +1,56 @@
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: computer
+-- ------------------------------------------------------
+-- Server version	8.0.22
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cpu`
+--
+
+DROP TABLE IF EXISTS `cpu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cpu` (
+  `name` varchar(30) NOT NULL,
+  `socket` varchar(45) NOT NULL,
+  `manufacturer` varchar(45) NOT NULL,
+  `cores` int NOT NULL,
+  `threads` int NOT NULL,
+  `tdp` int NOT NULL,
+  `price` int NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cpu`
+--
+
+LOCK TABLES `cpu` WRITE;
+/*!40000 ALTER TABLE `cpu` DISABLE KEYS */;
+INSERT INTO `cpu` VALUES ('core i3 10100F','LGA 1200','Intel',4,8,65,8100),('Core i5 10400F','LGA 1200','Intel',6,12,65,13300),('core i5 10600k','LGA 1200','Intel',6,12,150,22400),('Core i7 10700f','LGA 1200','Intel',8,16,95,26000),('Core i7 10700k','LGA 1200','Intel',8,16,250,31000),('Core i9 10900k','LGA 1200','Intel',10,20,275,44000),('R3 3200g','AM4','AMD',4,4,65,7700),('R5 3400g','AM4','AMD',4,8,65,13500),('R5 3500','AM4','AMD',6,6,65,13000),('R5 3500x','AM4','AMD',6,6,95,14000),('R5 3600','AM4','AMD',6,12,65,17500),('R5 3600x','AM4','AMD',6,12,95,22000),('R7 3700','AM4','AMD',8,16,65,28000),('R7 3800x','AM4','AMD',8,16,95,30000),('R9 3900x','AM4','AMD',12,24,125,43000),('R9 3950x','AM4','AMD',16,32,150,65000);
+/*!40000 ALTER TABLE `cpu` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-01-14 19:47:54
