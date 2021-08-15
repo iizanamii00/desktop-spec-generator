@@ -10,6 +10,7 @@ class Ui_MainWindow(object):
     budget = 0
     cpuBudget = 0
     CPU = []
+    OPString = 'CPU : '
     gpuBudget = 0
     GPU = []
     moboBudget = 0
@@ -24,7 +25,7 @@ class Ui_MainWindow(object):
     ssd = []
     hddBudget = 0
     hdd = []
-    exam = 'hi'
+
 
     def allocator(self):
         if self.budget == 30000:
@@ -81,6 +82,7 @@ class Ui_MainWindow(object):
         print(self.caseBudget, self.cpuBudget, self.gpuBudget, self.moboBudget, self.hddBudget, self.psuBudget,
               self.ssdBudget, self.ramBudget)
 
+
     def usecase1(self):
         self.usecase = 'gaming'
 
@@ -99,7 +101,7 @@ class Ui_MainWindow(object):
     def platform2(self):
         self.platform = 'AMD'
 
-    def budget25(self):
+    def budget30(self):
         self.budget = 30000
 
     def budget50(self):
@@ -114,33 +116,53 @@ class Ui_MainWindow(object):
     def budget150(self):
         self.budget = 150000
 
+
     def mainfunction(self):
 
         self.allocator()
 
         self.CPU = fetcher.getCPU(self.platform,self.cpuBudget)
         print(self.CPU)
+        self.OPString = self.OPString + str(self.CPU[2]) + ' ' + str(self.CPU[0]) + '\nGPU : '
+        self.output.setText(self.OPString)
+
 
         self.GPU = fetcher.getGPU(self.gpuBudget)
         print(self.GPU)
+        self.OPString = self.OPString + str(self.GPU[1]) + ' ' + str(self.GPU[0]) + '\nMotherboard : '
+        self.output.setText(self.OPString)
+
 
         self.mobo = fetcher.getMobo(self.CPU[1], self.moboBudget)
         print(self.mobo)
+        self.OPString = self.OPString + str(self.mobo[1]) + ' ' + str(self.mobo[0]) + '\nRAM : '
+        self.output.setText(self.OPString)
 
         self.ram = fetcher.getRAM(self.ramBudget)
         print(self.ram)
+        self.OPString = self.OPString + str(self.ram[4]) + ' ' + str(self.ram[0]) + '\nCase : '
+        self.output.setText(self.OPString)
 
         self.case = fetcher.getCase(self.mobo[5],self.caseBudget)
         print(self.case)
+        self.OPString = self.OPString + str(self.case[1]) + ' ' + str(self.case[0]) + '\nPSU : '
+        self.output.setText(self.OPString)
 
         self.psu = fetcher.getPSU(self.psuBudget)
         print(self.psu)
+        self.OPString = self.OPString + str(self.psu[1]) + ' ' + str(self.psu[0]) + '\nSSD : '
+        self.output.setText(self.OPString)
 
         self.ssd = fetcher.getSSD(self.ssdBudget)
         print(self.ssd)
+        self.OPString = self.OPString + str(self.ssd[1]) + ' ' + str(self.psu[0]) + '\nHDD : '
+        self.output.setText(self.OPString)
 
         self.hdd = fetcher.getHDD(self.hddBudget)
         print(self.hdd)
+        self.OPString = self.OPString + str(self.hdd[1]) + ' ' + str(self.hdd[0])
+        self.output.setText(self.OPString)
+        self.OPString = 'CPU : '
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -259,7 +281,7 @@ class Ui_MainWindow(object):
                                    "background-color : green;"
                                    "}"
                                    )
-        self.intel_2.clicked.connect(self.budget25)
+        self.intel_2.clicked.connect(self.budget30)
         self.intel_3 = QtWidgets.QPushButton(self.centralwidget)
         self.intel_3.setGeometry(QtCore.QRect(240, 530, 181, 61))
         self.intel_3.setObjectName("intel_3")
@@ -347,7 +369,7 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Select a usecase</span></p></body></html>"))
         self.submit.setText(_translate("MainWindow", "Submit"))
-        self.intel_2.setText(_translate("MainWindow", "25,000"))
+        self.intel_2.setText(_translate("MainWindow", "30,000"))
         self.intel_3.setText(_translate("MainWindow", "50,000"))
         self.intel_4.setText(_translate("MainWindow", "75,000"))
         self.intel_5.setText(_translate("MainWindow", "1,00,000"))
@@ -356,14 +378,15 @@ class Ui_MainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">CPU : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">GPU : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Motherboard : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">RAM : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Case : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">PSU : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">SSD : </p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">HDD : </p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">CPU : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">GPU : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Motherboard : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">RAM : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Case : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">PSU : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">SSD : </p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">HDD : </p></body></html>"))
+
 
 
 
@@ -374,4 +397,5 @@ if __name__ == "__main__":
     ui.setupUi(w)
     w.show()
     sys.exit(app.exec_())
+
 
